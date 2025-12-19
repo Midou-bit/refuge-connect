@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>@yield('title')</title>
+<h1>Nos animaux</h1>
 
-    <link rel="icon" href="{{ asset('images/animaux/favicon.png') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+@foreach ($animals as $animal)
+    <div>
+        <h2>{{ $animal['name'] }}</h2>
+        <p>{{ $animal['species'] }} – {{ $animal['age'] }} ans</p>
+        <p>{{ $animal['description'] }}</p>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
-    @include('partials.header')
-
-    <main>
-        @yield('content')
-    </main>
-
-    @include('partials.footer')
-</body>
-</html>
+        <img 
+            src="{{ asset('images/' . $animal['photo']) }}" 
+            alt="{{ $animal['name'] }}"
+            width="200"
+        >
+    </div>
+@endforeach

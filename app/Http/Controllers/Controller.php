@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Animal;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
-class IndexController extends Controller
+class Controller extends BaseController
 {
-    public function index()
-    {
-        $animals = Animal::all();
-
-        return view('welcome', [
-            'animals' => $animals
-        ]);
-    }
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }

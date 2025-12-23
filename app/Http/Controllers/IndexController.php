@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class IndexController extends Controller
 {
     public function index()
     {
-        $json = Storage::get('animals.json');
-        $animals = json_decode($json, true);
+        $path = storage_path('app/animals.json');
+
+        if (!File::exists($path)) {
+            $animals = [];
+        } else {
+            $animals = json_decode(File::get($path), true);
+            if (!is_array($animals)) {
+                $animals = [];
+            }
+        }
 
         return view('welcome', [
             'animals' => $animals

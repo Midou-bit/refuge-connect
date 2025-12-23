@@ -1,3 +1,3 @@
 <footer>
-    <p>{{ date('Y') }} - Refuge Connect</p>
+    © {{ date('Y') }} - Refuge Connect
 </footer>

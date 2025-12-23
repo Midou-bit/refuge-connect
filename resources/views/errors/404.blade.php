@@ -3,6 +3,7 @@
 @section('title', 'Page non trouvée')
 
 @section('content')
-<h2>Page non trouvée</h2>
-<p><a href="{{ route('home') }}">Retour à l’accueil</a></p>
+    <div class="page-404">
+        <h1>Page non trouvée.</h1>
+    </div>
 @endsection

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', $animal->name)
+@section('title', $animal['name'])
 
 @section('content')
-<section>
-    <h2>{{ $animal->name }}</h2>
-    <img src="{{ asset($animal->photo) }}" alt="{{ $animal->name }}">
-    <p>{{ $animal->species }} – {{ $animal->age }} ans</p>
-    <p>{{ $animal->description }}</p>
-    <p><a href="{{ route('home') }}">Retour</a></p>
-</section>
+    <h1>{{ $animal['name'] }}</h1>
+
+    <img src="{{ asset('images/' . $animal['photo']) }}" width="200">
+
+    <p>Espèce : {{ $animal['species'] }}</p>
+    <p>Âge : {{ $animal['age'] }} ans</p>
+    <p>{{ $animal['description'] }}</p>
 @endsection

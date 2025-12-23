@@ -1,15 +1,15 @@
-<h1>Nos animaux</h1>
+@extends('layouts.app')
 
-@foreach ($animals as $animal)
-    <div>
-        <h2>{{ $animal['name'] }}</h2>
-        <p>{{ $animal['species'] }} – {{ $animal['age'] }} ans</p>
-        <p>{{ $animal['description'] }}</p>
+@section('title', 'Accueil')
 
-        <img 
-            src="{{ asset('images/' . $animal['photo']) }}" 
-            alt="{{ $animal['name'] }}"
-            width="200"
-        >
+@section('content')
+    <h1>Nos animaux</h1>
+
+    <div class="animals-wrapper">
+        <div class="animals">
+            @foreach ($animals as $animal)
+                <x-animal-card :animal="$animal" />
+            @endforeach
+        </div>
     </div>
-@endforeach
+@endsection

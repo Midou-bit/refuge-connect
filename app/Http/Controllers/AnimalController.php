@@ -1,20 +1,49 @@
-<article>
-    <h2>{{ $animal->nom }}</h2>
+<?php
 
-    <img 
-        src="{{ asset('images/animaux/' . $animal->photo) }}" 
-        alt="{{ $animal->nom }}"
-        width="200"
-    >
+namespace App\Http\Controllers;
 
-    <p><strong>Espèce :</strong> {{ $animal->espece }}</p>
-    <p><strong>Âge :</strong> {{ $animal->age }} ans</p>
-    <p>{{ $animal->description }}</p>
+use Illuminate\Support\Facades\File;
 
-    <a href="{{ route('animals.show', $animal->id) }}">Voir la fiche</a>
+class AnimalController extends Controller
+{
+    private function getAnimals()
+    {
+        $path = storage_path('app/animals.json');
 
-    <br><br>
+        if (!File::exists($path)) {
+            return [];
+        }
 
-    <a href="{{ route('animals.edit', $animal->id) }}">Modifier</a> |
-    <a href="{{ route('animals.delete', $animal->id) }}">Supprimer</a>
-</article>
+        return json_decode(File::get($path), true);
+    }
+
+    public function show($id)
+    {
+        $animals = $this->getAnimals();
+
+        foreach ($animals as $animal) {
+            if ($animal['id'] == $id) {
+                return view('animals.show', [
+                    'animal' => $animal
+                ]);
+            }
+        }
+
+        abort(404);
+    }
+
+    public function create()
+    {
+        return redirect()->route('home');
+    }
+
+    public function edit($id)
+    {
+        return redirect()->route('home');
+    }
+
+    public function delete($id)
+    {
+        return redirect()->route('home');
+    }
+}

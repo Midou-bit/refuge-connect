@@ -1,40 +1,137 @@
-body {
-    background: #f5f8fa;
-    font-family: 'Poppins', sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f8fa;
+    color: #000;
 }
 
 a {
     color: #52c9ff;
     text-decoration: none;
-    margin-left: 15px;
+}
+
+header {
+    background-color: #f5f8fa;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    height: 45px;
+}
+
+nav a {
+    margin-left: 20px;
+    font-size: 14px;
+    color: #000000;
 }
 
 main {
-    padding: 40px;
+    padding: 40px 0;
     text-align: center;
 }
 
-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+h1 {
+    margin-bottom: 40px;
+    font-size: 28px;
 }
 
-article {
+.animals-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.animals {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+}
+
+.card {
     background: white;
     padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
     border-radius: 8px;
-    width: 220px;
+}
+
+.card h2 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.card .actions {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
 }
 
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 30px 0;
+    font-size: 12px;
+    margin-top: 40px;
+    background-color: #f5f8fa;
+}
+
+
+.animal-show {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #f5f8fa;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-radius: 10px;
+}
+
+.animal-show img {
+    width: 220px;
+    border-radius: 8px;
+}
+
+.animal-info {
+    text-align: left;
+}
+
+.animal-info p {
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+
+.page-404 {
+    background-color: #f5f8fa;
+    padding: 80px 0;
+}
+
+.page-404 h1 {
+    font-size: 24px;
+    font-weight: 600;
 }
